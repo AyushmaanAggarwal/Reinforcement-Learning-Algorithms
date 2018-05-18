@@ -1,0 +1,3 @@
+## Dependencies
+* OpenAI gym
+* numpy
