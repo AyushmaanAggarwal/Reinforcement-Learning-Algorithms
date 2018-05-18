@@ -4,7 +4,7 @@ from gridworld import GridworldEnv
 
 env = GridworldEnv()
 
-def policy_eval(policy, env, discount_factor=1.0, theta=0.00001):
+def policy_eval(policy, env, discount_factor=1.0, epsilon=0.00001):
     """
     Evaluate a policy given an environment and a full description of the environment's dynamics.
     
@@ -56,7 +56,7 @@ def policy_eval(policy, env, discount_factor=1.0, theta=0.00001):
         V = V_old
 
         #if true value function
-        if(delta < theta):
+        if(delta < epsilon):
             break
 
     return np.array(V)

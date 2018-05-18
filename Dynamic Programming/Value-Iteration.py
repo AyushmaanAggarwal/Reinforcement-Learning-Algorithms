@@ -1,6 +1,7 @@
 import numpy as np
 import pprint
 import sys
+import gym.spaces
 if "../" not in sys.path:
   sys.path.append("../") 
 from lib.envs.gridworld import GridworldEnv
@@ -9,7 +10,7 @@ from lib.envs.gridworld import GridworldEnv
 pp = pprint.PrettyPrinter(indent=2)
 env = GridworldEnv()
 
-def value_iteration(env, theta=0.0001, discount_factor=1.0):
+def value_iteration(env, epsilon=0.0001, discount_factor=1.0):
     """
     Value Iteration Algorithm.
     
@@ -69,7 +70,7 @@ def value_iteration(env, theta=0.0001, discount_factor=1.0):
 
 
     	#if optimal value function
-    	if(delta < theta):
+    	if(delta < epsilon):
     		break
     
     return policy, V
